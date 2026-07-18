@@ -2,9 +2,11 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useCallback, useRef, useState } from "react";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 import type { Project } from "@/data/projects";
+import { EASE_LUXURY } from "@/lib/motion";
 
 type ProjectRowProps = {
   project: Project;
@@ -12,35 +14,37 @@ type ProjectRowProps = {
 };
 
 export function ProjectRow({ project, index }: ProjectRowProps) {
-  const rowRef = useRef<HTMLAnchorElement>(null);
-  const [hover, setHover] = useState(false);
-  const [pos, setPos] = useState({ x: 0, y: 0 });
-
-  const onMove = useCallback((e: React.MouseEvent) => {
-    setPos({ x: e.clientX, y: e.clientY });
-  }, []);
+  const ref = useRef<HTMLElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-8%" });
+  const external = project.href.startsWith("http");
 
   return (
-    <>
-      <Link
-        ref={rowRef}
-        href={project.href}
-        className="group relative block border-t border-border py-7 md:py-9"
-        onMouseEnter={() => setHover(true)}
-        onMouseMove={onMove}
-        onMouseLeave={() => setHover(false)}
-      >
-        <div className="relative z-20 mx-auto flex max-w-content flex-col gap-3 transition-transform duration-700 ease-luxury md:flex-row md:items-baseline md:justify-between md:gap-8 md:group-hover:translate-x-2">
-          <div className="flex flex-wrap items-baseline gap-4 md:gap-10">
+    <motion.article
+      ref={ref}
+      initial={{ opacity: 0, y: 28 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.7, delay: index * 0.06, ease: EASE_LUXURY }}
+      className="border-t border-border py-10 md:py-14"
+    >
+      <div className="mx-auto max-w-content">
+        <div className="mb-6 flex flex-wrap items-baseline justify-between gap-4 md:mb-8">
+          <div className="flex flex-wrap items-baseline gap-4 md:gap-8">
             <span className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">
               {String(index + 1).padStart(2, "0")}
             </span>
-            <h3 className="text-[clamp(1.75rem,4vw,3.25rem)] font-medium tracking-tight text-fg">
-              {project.title}
+            <h3 className="text-[clamp(1.75rem,4vw,3rem)] font-medium tracking-tight text-fg">
+              <Link
+                href={project.href}
+                {...(external
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
+                className="transition-opacity hover:opacity-80"
+              >
+                {project.title}
+              </Link>
             </h3>
           </div>
-
-          <div className="flex flex-wrap items-center gap-6 text-sm text-muted md:justify-end md:text-right">
+          <div className="flex flex-wrap items-center gap-5 text-sm text-muted md:text-right">
             <span className="text-label font-medium uppercase tracking-[0.12em]">
               {project.category}
             </span>
@@ -50,31 +54,30 @@ export function ProjectRow({ project, index }: ProjectRowProps) {
           </div>
         </div>
 
-        <span
-          className="absolute bottom-0 left-0 h-px w-0 bg-fg/25 transition-[width] duration-[650ms] ease-luxury group-hover:w-full"
-          aria-hidden
-        />
-      </Link>
-
-      {hover ? (
-        <div
-          className="pointer-events-none fixed z-[90] hidden aspect-[4/3] w-[min(38vw,300px)] overflow-hidden rounded-sm shadow-2xl md:block"
-          style={{
-            left: pos.x,
-            top: pos.y,
-            transform: "translate(-50%, -50%) scale(1)",
-          }}
+        <Link
+          href={project.href}
+          {...(external
+            ? { target: "_blank", rel: "noopener noreferrer" }
+            : {})}
+          className="group relative mb-6 block aspect-[16/9] w-full overflow-hidden rounded-sm bg-fg/[0.04] md:mb-8"
         >
           <Image
             src={project.image}
-            alt={`${project.title} — preview placeholder`}
+            alt={`${project.title} — product screenshot`}
             fill
-            className="object-cover"
-            sizes="300px"
+            className="object-cover object-top transition-transform duration-700 ease-luxury group-hover:scale-[1.02]"
+            sizes="(max-width: 1024px) 100vw, 1100px"
             priority={index < 2}
           />
-        </div>
-      ) : null}
-    </>
+        </Link>
+
+        <p className="max-w-read text-base leading-relaxed text-fg/80 md:text-lg">
+          {project.outcome}
+        </p>
+        <p className="mt-4 max-w-read text-[13px] leading-relaxed text-muted md:text-sm">
+          {project.tech}
+        </p>
+      </div>
+    </motion.article>
   );
 }

@@ -14,9 +14,16 @@ export function Projects() {
   const inView = useInView(labelRef, { once: true, margin: "-10%" });
 
   return (
-    <div className="px-gutter pb-8 pt-4 md:pb-12 md:pt-8" role="region" aria-label="Selected work">
+    <div
+      className="px-gutter pb-8 pt-4 md:pb-12 md:pt-8"
+      role="region"
+      aria-label="Selected work"
+    >
       <SectionReveal className="mx-auto max-w-content" as="div">
-        <div ref={labelRef} className="mb-12 flex items-end justify-between gap-6 md:mb-16">
+        <div
+          ref={labelRef}
+          className="mb-10 flex items-end justify-between gap-6 md:mb-14"
+        >
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -31,16 +38,16 @@ export function Projects() {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="hidden text-[11px] font-medium uppercase tracking-[0.2em] text-muted md:block"
           >
-            Selected
+            Evidence
           </motion.span>
         </div>
-
-        <div className="border-b border-border">
-          {projects.map((p, i) => (
-            <ProjectRow key={p.id} project={p} index={i} />
-          ))}
-        </div>
       </SectionReveal>
+
+      <div className="border-b border-border">
+        {projects.map((p, i) => (
+          <ProjectRow key={p.id} project={p} index={i} />
+        ))}
+      </div>
     </div>
   );
 }

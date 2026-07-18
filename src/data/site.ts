@@ -14,7 +14,7 @@ export const site = {
   moreWork: {
     label: "More work",
     href: "/work",
-    subline: "Archive & selected experiments",
+    subline: "Full case archive with screenshots",
   },
   contact: {
     headingLine1: "Let's work",
