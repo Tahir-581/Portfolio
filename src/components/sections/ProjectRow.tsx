@@ -6,7 +6,6 @@ import { useRef } from "react";
 
 import type { Project } from "@/data/projects";
 import { EASE_LUXURY } from "@/lib/motion";
-import { warmDemoOrigin } from "@/lib/warmDemo";
 
 type ProjectRowProps = {
   project: Project;
@@ -60,8 +59,6 @@ export function ProjectRow({ project, index, onBuyNow }: ProjectRowProps) {
         <button
           type="button"
           onClick={() => onBuyNow(project)}
-          onMouseEnter={() => warmDemoOrigin(project.demoUrl)}
-          onFocus={() => warmDemoOrigin(project.demoUrl)}
           className="mb-6 rounded-sm bg-fg px-4 py-2.5 text-[11px] font-medium uppercase tracking-[0.14em] text-bg transition-opacity hover:opacity-85 md:mb-8"
         >
           Buy now

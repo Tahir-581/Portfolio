@@ -20,8 +20,8 @@ export const site = {
     headingLine1: "Let's build",
     headingLine2: "together",
     cta: { label: "Get in touch", href: "/contact" },
-    email: "tahir824raja@gmail.com",
-    phone: "+1 (555) 012-3456",
+    email: "support@tesoora.com",
+    phone: "+000000000",
   },
   footer: {
     versionLabel: "Version",

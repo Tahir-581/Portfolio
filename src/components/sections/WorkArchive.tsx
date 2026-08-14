@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useCallback, useState } from "react";
 
 import { projects, type Project } from "@/data/projects";
-import { warmDemoOrigin } from "@/lib/warmDemo";
 
 import { ProjectPreviewModal } from "./ProjectPreviewModal";
 
@@ -41,8 +40,6 @@ export function WorkArchive() {
             <button
               type="button"
               onClick={() => setActive(p)}
-              onMouseEnter={() => warmDemoOrigin(p.demoUrl)}
-              onFocus={() => warmDemoOrigin(p.demoUrl)}
               className="mb-5 rounded-sm bg-fg px-4 py-2.5 text-[11px] font-medium uppercase tracking-[0.14em] text-bg transition-opacity hover:opacity-85"
             >
               Buy now
