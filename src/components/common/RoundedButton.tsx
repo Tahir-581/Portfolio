@@ -2,7 +2,7 @@
 
 import gsap from "gsap";
 import Link from "next/link";
-import { useEffect, useRef, type ComponentPropsWithoutRef } from "react";
+import { useEffect, useRef, type ComponentPropsWithoutRef, type MouseEventHandler } from "react";
 
 import { Magnetic } from "./Magnetic";
 
@@ -12,7 +12,8 @@ type RoundedButtonProps = {
   className?: string;
   backgroundColor?: string;
   type?: "button" | "submit";
-} & Omit<ComponentPropsWithoutRef<"button">, "type">;
+  onClick?: MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
+} & Omit<ComponentPropsWithoutRef<"button">, "type" | "onClick">;
 
 export function RoundedButton({
   children,
@@ -20,6 +21,7 @@ export function RoundedButton({
   className = "",
   backgroundColor = "#000000",
   type = "button",
+  onClick,
   ...rest
 }: RoundedButtonProps) {
   const circle = useRef<HTMLSpanElement>(null);
@@ -98,6 +100,7 @@ export function RoundedButton({
         <Link
           href={href}
           className={shellClass}
+          onClick={onClick}
           onMouseEnter={onEnter}
           onMouseLeave={onLeave}
         >
@@ -112,6 +115,7 @@ export function RoundedButton({
       <button
         type={type}
         className={shellClass}
+        onClick={onClick}
         onMouseEnter={onEnter}
         onMouseLeave={onLeave}
         {...rest}

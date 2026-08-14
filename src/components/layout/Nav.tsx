@@ -1,10 +1,10 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 
+import { RoundedButton } from "@/components/common/RoundedButton";
 import { EASE_LUXURY } from "@/lib/motion";
 
 const links = [
@@ -78,18 +78,14 @@ export function Nav({ open, onClose }: NavProps) {
               initial="closed"
               animate="open"
               exit="closed"
-              className="flex flex-col gap-2 md:gap-4"
+              className="flex flex-col items-start gap-4"
               aria-label="Primary"
             >
               {links.map((l) => (
                 <motion.div key={l.href} variants={linkItem}>
-                  <Link
-                    href={l.href}
-                    onClick={onClose}
-                    className="block text-[clamp(2.25rem,8vw,4.5rem)] font-medium leading-none tracking-tight text-fg transition-opacity hover:opacity-70"
-                  >
+                  <RoundedButton href={l.href} onClick={onClose}>
                     {l.label}
-                  </Link>
+                  </RoundedButton>
                 </motion.div>
               ))}
             </motion.nav>
