@@ -7,7 +7,7 @@ import { useRef } from "react";
 import { Magnetic } from "@/components/common/Magnetic";
 import { RoundedButton } from "@/components/common/RoundedButton";
 import { Footer } from "@/components/layout/Footer";
-import { site } from "@/data/site";
+import { site, whatsappHref } from "@/data/site";
 import { EASE_LUXURY } from "@/lib/motion";
 
 export function Contact() {
@@ -77,7 +77,7 @@ export function Contact() {
               </div>
             </div>
 
-            <div className="mt-16 flex max-w-3xl flex-col gap-6 sm:flex-row sm:gap-12 md:mt-24">
+            <div className="mt-16 flex max-w-3xl flex-col gap-6 sm:flex-row sm:flex-wrap sm:gap-12 md:mt-24">
               <Magnetic strength={0.3}>
                 <a
                   href={`mailto:${site.contact.email}`}
@@ -92,6 +92,16 @@ export function Contact() {
                   className="block text-lg text-fg/90 transition-opacity hover:opacity-70 md:text-xl"
                 >
                   {site.contact.phone}
+                </a>
+              </Magnetic>
+              <Magnetic strength={0.3}>
+                <a
+                  href={whatsappHref()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-lg text-fg/90 transition-opacity hover:opacity-70 md:text-xl"
+                >
+                  {site.contact.whatsappDisplay}
                 </a>
               </Magnetic>
             </div>

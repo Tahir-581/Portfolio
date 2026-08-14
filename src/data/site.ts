@@ -23,6 +23,9 @@ export const site = {
     cta: { label: "Get in touch", href: "/contact" },
     email: "support@tesoora.com",
     phone: "+000000000",
+    whatsapp: "923180186456",
+    whatsappDisplay: "+92 318 0186456",
+    whatsappMessage: "Hi Tesoora, I want to inquire about a website.",
   },
   footer: {
     versionLabel: "Version",
@@ -44,3 +47,7 @@ export const site = {
     byline: "Agency",
   },
 } as const;
+
+export function whatsappHref() {
+  return `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(site.contact.whatsappMessage)}`;
+}
