@@ -28,16 +28,16 @@ export const projects: Project[] = [
     tech: "Next.js · Vercel · E-commerce UI",
   },
   {
-    id: "bernice-bakery",
-    title: "Bernice Bakery",
-    category: "Bakery",
+    id: "ecarlate-paris",
+    title: "Écarlate Paris",
+    category: "Fragrance",
     year: "2026",
-    image: "/images/projects/bernice-bakery.jpg",
-    demoUrl: "https://bernice-bakery.vercel.app/",
-    href: "https://bernice-bakery.vercel.app/",
+    image: "/images/projects/ecarlate-paris.jpg",
+    demoUrl: "/demos/ecarlate",
+    href: "/demos/ecarlate",
     outcome:
-      "A warm bakery site that showcases menus, atmosphere, and ordering intent — designed to feel local and inviting online.",
-    tech: "Next.js · Vercel · Brand site",
+      "A cinematic luxury fragrance maison — editorial storytelling, shoppable collections, and a checkout-ready bag built to feel like a Paris house.",
+    tech: "Next.js · In-app demo · Luxury e-commerce UI",
   },
   {
     id: "coffka",
@@ -71,7 +71,7 @@ export function getProjectById(id: string): Project | undefined {
 
 export const slidingGallery = [
   { color: "#1a1a1c", src: "/images/projects/serum-store.jpg" },
-  { color: "#252528", src: "/images/projects/bernice-bakery.jpg" },
+  { color: "#252528", src: "/images/projects/ecarlate-paris.jpg" },
   { color: "#1e1e22", src: "/images/projects/coffka.jpg" },
   { color: "#2a2826", src: "/images/projects/mobile-phones.jpg" },
 ] as const;
@@ -80,5 +80,5 @@ export const slidingGalleryRow2 = [
   { color: "#222124", src: "/images/projects/mobile-phones.jpg" },
   { color: "#2c2a28", src: "/images/projects/coffka.jpg" },
   { color: "#1f1d1b", src: "/images/projects/serum-store.jpg" },
-  { color: "#262422", src: "/images/projects/bernice-bakery.jpg" },
+  { color: "#262422", src: "/images/projects/ecarlate-paris.jpg" },
 ] as const;

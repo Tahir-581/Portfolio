@@ -28,11 +28,14 @@ html.lenis body {
 }
 
 body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.site-root {
   color: var(--fg);
   background: var(--bg);
   font-family: var(--font-manrope), system-ui, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {

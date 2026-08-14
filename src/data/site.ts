@@ -6,9 +6,10 @@ export const site = {
   heroSupporting:
     "We design and build conversion-focused websites for brands that want to look sharp and sell with confidence — from concept to launch.",
   heroCta: { label: "Our work", href: "/work" },
+  heroStartCta: { label: "Start Here", href: "/work" },
   introHeading: "What we do",
   introPrimary:
-    "Tesoora is a website development agency. We craft custom sites for stores, cafes, bakeries, and growing brands — clear structure, strong visuals, and code that ships.",
+    "Tesoora is a website development agency. We craft custom sites for stores, fragrance houses, cafes, and growing brands — clear structure, strong visuals, and code that ships.",
   introSecondary:
     "Browse live demos of past work, preview them in place, and request a similar build for your business when you are ready.",
   moreWork: {
@@ -27,7 +28,6 @@ export const site = {
     versionLabel: "Version",
     versionValue: "2026 © Edition",
     timeLabel: "Local time",
-    socialsHeading: "Socials",
   },
   preloaderWords: [
     "Hello",

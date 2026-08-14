@@ -4,6 +4,7 @@ import { motion, useInView } from "framer-motion";
 import dynamic from "next/dynamic";
 import { useRef } from "react";
 
+import { RoundedButton } from "@/components/common/RoundedButton";
 import { projects } from "@/data/projects";
 import { site } from "@/data/site";
 import { fadeIn, slideUpWord } from "@/lib/motion";
@@ -57,6 +58,18 @@ export function Hero() {
         >
           {site.heroDescriptor}
         </motion.p>
+
+        <motion.div
+          variants={fadeIn}
+          initial="initial"
+          animate={inView ? "open" : "initial"}
+          transition={{ delay: 0.55 }}
+          className="mt-10"
+        >
+          <RoundedButton href={site.heroStartCta.href}>
+            {site.heroStartCta.label}
+          </RoundedButton>
+        </motion.div>
       </div>
     </section>
   );

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect } from "react";
 
-import { projects, type Project } from "@/data/projects";
+import type { Project } from "@/data/projects";
 
 type ProjectPreviewModalProps = {
   project: Project | null;
@@ -62,7 +62,7 @@ export function ProjectPreviewModal({
               {project?.title ?? "Live demo"}
             </p>
             <p className="truncate text-[11px] uppercase tracking-[0.14em] text-muted">
-              {project ? `${project.category} · Live demo` : "Loading demos"}
+              {project ? `${project.category} · Live demo` : "Loading demo"}
             </p>
           </div>
 
@@ -88,24 +88,16 @@ export function ProjectPreviewModal({
         </div>
 
         <div className="relative min-h-0 flex-1 bg-white">
-          {projects.map((p) => {
-            const active = project?.id === p.id;
-            return (
-              <iframe
-                key={p.id}
-                title={`${p.title} preview`}
-                src={p.demoUrl}
-                className={`absolute inset-0 h-full w-full border-0 bg-white ${
-                  active
-                    ? "z-[1] opacity-100"
-                    : "pointer-events-none z-0 opacity-0"
-                }`}
-                loading="eager"
-                referrerPolicy="no-referrer"
-                tabIndex={active && open ? 0 : -1}
-              />
-            );
-          })}
+          {open && project ? (
+            <iframe
+              key={project.id}
+              title={`${project.title} preview`}
+              src={project.demoUrl}
+              className="absolute inset-0 h-full w-full border-0 bg-white"
+              loading="eager"
+              referrerPolicy="no-referrer"
+            />
+          ) : null}
         </div>
       </div>
     </div>

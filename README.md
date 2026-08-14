@@ -15,7 +15,6 @@ Open [http://localhost:3000](http://localhost:3000).
 
 - **Site copy & contact:** [`src/data/site.ts`](src/data/site.ts)
 - **Projects list:** [`src/data/projects.ts`](src/data/projects.ts)
-- **Social links:** [`src/data/socials.ts`](src/data/socials.ts)
 - **Project & gallery images:** replace files under [`public/images/`](public/images/) and update paths in `projects.ts` if needed.
 
 ## Build
