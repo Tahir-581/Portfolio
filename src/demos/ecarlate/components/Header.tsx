@@ -14,11 +14,12 @@ export function Header() {
         <button
           type="button"
           className="ec-icon-btn"
+          aria-label={overlay === "menu" ? "Close menu" : "Open menu"}
           aria-expanded={overlay === "menu"}
           onClick={() => (overlay === "menu" ? close() : open("menu"))}
         >
           <span aria-hidden>{overlay === "menu" ? "✕" : "☰"}</span>
-          Menu
+          <span className="ec-icon-label">Menu</span>
         </button>
       </div>
 
@@ -26,27 +27,59 @@ export function Header() {
         Écarlate
       </Link>
 
-      <div className="flex items-center justify-end gap-3 sm:gap-5">
+      <div className="ec-header-actions">
         <button
           type="button"
           className="ec-icon-btn"
+          aria-label="Search"
           onClick={() => open("search")}
         >
-          Search
+          <svg
+            className="ec-icon-svg"
+            viewBox="0 0 24 24"
+            width="18"
+            height="18"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            aria-hidden
+          >
+            <circle cx="11" cy="11" r="6.5" />
+            <path d="M16 16l4.5 4.5" />
+          </svg>
+          <span className="ec-icon-label">Search</span>
         </button>
         <button
           type="button"
-          className="ec-icon-btn hidden sm:inline-flex"
+          className="ec-icon-btn ec-icon-btn-account"
+          aria-label="Account"
           onClick={() => open("account")}
         >
-          Account
+          <span className="ec-icon-label">Account</span>
         </button>
         <button
           type="button"
           className="ec-icon-btn"
+          aria-label={`Cart, ${count} items`}
           onClick={() => open("cart")}
         >
-          Cart {count}
+          <svg
+            className="ec-icon-svg"
+            viewBox="0 0 24 24"
+            width="18"
+            height="18"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            aria-hidden
+          >
+            <path d="M6 8h12l-1 11H7L6 8z" />
+            <path d="M9 8V7a3 3 0 0 1 6 0v1" />
+          </svg>
+          <span className="ec-icon-label">Cart {count}</span>
+          <span className="ec-cart-count" aria-hidden>
+            {count}
+          </span>
         </button>
       </div>
     </header>

@@ -40,16 +40,16 @@ export const projects: Project[] = [
     tech: "Next.js · In-app demo · Luxury e-commerce UI",
   },
   {
-    id: "coffka",
-    title: "Coffka",
-    category: "Cafe",
+    id: "dar-al-safa",
+    title: "Dār Al-Safā",
+    category: "Fashion",
     year: "2026",
-    image: "/images/projects/coffka.jpg",
-    demoUrl: "https://coffka.vercel.app/",
-    href: "https://coffka.vercel.app/",
+    image: "/images/projects/dar-al-safa.jpg",
+    demoUrl: "/demos/safa",
+    href: "/demos/safa",
     outcome:
-      "A cafe brand presence with menu highlights and a modern layout that turns browsers into walk-ins and regulars.",
-    tech: "Next.js · Vercel · Hospitality UI",
+      "A modest-luxury fashion house — lawn, ready-to-wear, and fragrance with a shoppable catalog and checkout-ready bag built for conversion.",
+    tech: "Next.js · In-app demo · Fashion e-commerce UI",
   },
   {
     id: "mobile-phones",
@@ -72,13 +72,13 @@ export function getProjectById(id: string): Project | undefined {
 export const slidingGallery = [
   { color: "#1a1a1c", src: "/images/projects/serum-store.jpg" },
   { color: "#252528", src: "/images/projects/ecarlate-paris.jpg" },
-  { color: "#1e1e22", src: "/images/projects/coffka.jpg" },
+  { color: "#1e1e22", src: "/images/projects/dar-al-safa.jpg" },
   { color: "#2a2826", src: "/images/projects/mobile-phones.jpg" },
 ] as const;
 
 export const slidingGalleryRow2 = [
   { color: "#222124", src: "/images/projects/mobile-phones.jpg" },
-  { color: "#2c2a28", src: "/images/projects/coffka.jpg" },
+  { color: "#2c2a28", src: "/images/projects/dar-al-safa.jpg" },
   { color: "#1f1d1b", src: "/images/projects/serum-store.jpg" },
   { color: "#262422", src: "/images/projects/ecarlate-paris.jpg" },
 ] as const;

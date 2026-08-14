@@ -12,7 +12,7 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   title: "Tesoora — Website Development Agency",
   description:
-    "Tesoora designs and builds custom websites for brands — stores, cafes, bakeries, and more.",
+    "Tesoora designs and builds custom websites for brands — stores, fragrance houses, fashion houses, and more.",
 };
 
 export default function RootLayout({
