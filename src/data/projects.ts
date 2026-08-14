@@ -4,6 +4,9 @@ export type Project = {
   category: string;
   year: string;
   image: string;
+  /** Live demo URL shown in the preview modal and used for Buy Now context. */
+  demoUrl: string;
+  /** Legacy link field — points at the live demo. */
   href: string;
   /** What the product delivers — outcome first, not a tech dump. */
   outcome: string;
@@ -13,72 +16,69 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    id: "email-replier",
-    title: "Email Replier",
-    category: "AI Agents",
+    id: "serum-store",
+    title: "Serum Store",
+    category: "E-commerce",
     year: "2026",
-    image: "/images/projects/email-replier.jpg",
-    href: "https://github.com/Tahir-581/Email-Replier",
+    image: "/images/projects/serum-store.jpg",
+    demoUrl: "https://serum-store.vercel.app/",
+    href: "https://serum-store.vercel.app/",
     outcome:
-      "Recruiter inboxes stop drowning in triage — each candidate thread gets classified intent and a draft reply in the client’s voice, ready to send instead of write from scratch.",
-    tech: "LangGraph · Gmail API · PostgreSQL · OpenAI-compatible LLMs",
+      "A clean skincare storefront with product storytelling, shoppable catalog, and a checkout-ready layout built for conversion.",
+    tech: "Next.js · Vercel · E-commerce UI",
   },
   {
-    id: "autocaptions",
-    title: "AutoCaptions",
-    category: "Media AI",
+    id: "bernice-bakery",
+    title: "Bernice Bakery",
+    category: "Bakery",
     year: "2026",
-    image: "/images/projects/autocaptions.jpg",
-    href: "https://github.com/Tahir-581/AutoCaptions",
+    image: "/images/projects/bernice-bakery.jpg",
+    demoUrl: "https://bernice-bakery.vercel.app/",
+    href: "https://bernice-bakery.vercel.app/",
     outcome:
-      "Upload a video once and get burned-in multilingual captions without a manual transcription loop — speech, translation, and subtitle render run as background jobs until the file is ready.",
-    tech: "Whisper ASR · BullMQ · Next.js · Redis · FFmpeg · DeepL / NLLB",
+      "A warm bakery site that showcases menus, atmosphere, and ordering intent — designed to feel local and inviting online.",
+    tech: "Next.js · Vercel · Brand site",
   },
   {
-    id: "psx-intelligence",
-    title: "PSX Intelligence",
-    category: "Market Data",
+    id: "coffka",
+    title: "Coffka",
+    category: "Cafe",
     year: "2026",
-    image: "/images/projects/psx-intelligence.jpg",
-    href: "https://github.com/Tahir-581/psx-intelligence",
+    image: "/images/projects/coffka.jpg",
+    demoUrl: "https://coffka.vercel.app/",
+    href: "https://coffka.vercel.app/",
     outcome:
-      "Pakistan market desks get live prices, filings, screeners, and alerts in one production platform — replacing scattered scrapers and spreadsheets with a single source of truth.",
-    tech: "FastAPI · Celery · TimescaleDB · Docker · Next.js",
+      "A cafe brand presence with menu highlights and a modern layout that turns browsers into walk-ins and regulars.",
+    tech: "Next.js · Vercel · Hospitality UI",
   },
   {
-    id: "bookwise",
-    title: "BookWise",
-    category: "AI Audio",
+    id: "mobile-phones",
+    title: "Mobile Phones",
+    category: "Retail",
     year: "2026",
-    image: "/images/projects/bookwise.jpg",
-    href: "https://github.com/Tahir-581/BookWise",
+    image: "/images/projects/mobile-phones.jpg",
+    demoUrl: "https://mobile-phones-website.vercel.app/",
+    href: "https://mobile-phones-website.vercel.app/",
     outcome:
-      "Manuscripts become listen-ready audiobooks — text goes in, long-running TTS jobs queue on GPU workers, and playable audio comes back without a studio session.",
-    tech: "FastAPI · Celery · Next.js · Kokoro / XTTS · Docker",
-  },
-  {
-    id: "whatsapp-automation",
-    title: "WhatsApp Automation",
-    category: "Support AI",
-    year: "2026",
-    image: "/images/projects/whatsapp-automation.jpg",
-    href: "https://github.com/Tahir-581/Whatsapp-Automation",
-    outcome:
-      "Product support answers from a knowledge base over WhatsApp — customers get consistent replies without a human on every thread, with a dashboard to run campaigns and sessions.",
-    tech: "FastAPI · Selenium · SQLAlchemy · JWT auth · Web dashboard",
+      "A retail catalog experience for phones and devices — clear product browsing built for shoppers who want speed and clarity.",
+    tech: "Next.js · Vercel · Retail catalog",
   },
 ];
 
+export function getProjectById(id: string): Project | undefined {
+  return projects.find((p) => p.id === id);
+}
+
 export const slidingGallery = [
-  { color: "#1a1a1c", src: "/images/projects/email-replier.jpg" },
-  { color: "#252528", src: "/images/projects/autocaptions.jpg" },
-  { color: "#1e1e22", src: "/images/projects/psx-intelligence.jpg" },
-  { color: "#2a2826", src: "/images/projects/bookwise.jpg" },
+  { color: "#1a1a1c", src: "/images/projects/serum-store.jpg" },
+  { color: "#252528", src: "/images/projects/bernice-bakery.jpg" },
+  { color: "#1e1e22", src: "/images/projects/coffka.jpg" },
+  { color: "#2a2826", src: "/images/projects/mobile-phones.jpg" },
 ] as const;
 
 export const slidingGalleryRow2 = [
-  { color: "#222124", src: "/images/projects/whatsapp-automation.jpg" },
-  { color: "#2c2a28", src: "/images/projects/psx-intelligence.jpg" },
-  { color: "#1f1d1b", src: "/images/projects/email-replier.jpg" },
-  { color: "#262422", src: "/images/projects/autocaptions.jpg" },
+  { color: "#222124", src: "/images/projects/mobile-phones.jpg" },
+  { color: "#2c2a28", src: "/images/projects/coffka.jpg" },
+  { color: "#1f1d1b", src: "/images/projects/serum-store.jpg" },
+  { color: "#262422", src: "/images/projects/bernice-bakery.jpg" },
 ] as const;

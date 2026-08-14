@@ -53,7 +53,7 @@ export function Contact() {
                 <motion.div style={{ x: xBtn }}>
                   <RoundedButton
                     href={site.contact.cta.href}
-                    backgroundColor="#4a4a52"
+                    backgroundColor="#000000"
                   >
                     {site.contact.cta.label}
                   </RoundedButton>

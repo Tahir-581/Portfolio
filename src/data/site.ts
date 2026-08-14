@@ -1,26 +1,26 @@
 export const site = {
-  name: "Tahir Ahmad",
-  nameParts: ["Tahir", "Ahmad"] as const,
-  title: "Designer & Developer",
-  heroDescriptor: "Freelance designer & developer",
+  name: "Tesoora",
+  nameParts: ["Tesoora"] as const,
+  title: "Website Development Agency",
+  heroDescriptor: "Website development agency",
   heroSupporting:
-    "Crafting digital products with clarity, restraint, and precision — from concept to launch.",
-  heroCta: { label: "About me", href: "/about" },
-  introHeading: "Positioning",
+    "We design and build conversion-focused websites for brands that want to look sharp and sell with confidence — from concept to launch.",
+  heroCta: { label: "Our work", href: "/work" },
+  introHeading: "What we do",
   introPrimary:
-    "Helping brands feel intentional in the digital era. Together we set a calm, confident presence — no noise, only craft.",
+    "Tesoora is a website development agency. We craft custom sites for stores, cafes, bakeries, and growing brands — clear structure, strong visuals, and code that ships.",
   introSecondary:
-    "Design systems, interaction, and front-end engineering converge in my work — a rare blend for teams who care about the details.",
+    "Browse live demos of past work, preview them in place, and request a similar build for your business when you are ready.",
   moreWork: {
     label: "More work",
     href: "/work",
-    subline: "Full case archive with screenshots",
+    subline: "Full archive of live demos",
   },
   contact: {
-    headingLine1: "Let's work",
+    headingLine1: "Let's build",
     headingLine2: "together",
     cta: { label: "Get in touch", href: "/contact" },
-    email: "hello@tahirahmed.studio",
+    email: "tahir824raja@gmail.com",
     phone: "+1 (555) 012-3456",
   },
   footer: {
@@ -41,6 +41,6 @@ export const site = {
   ] as const,
   logo: {
     prefix: "©",
-    byline: "Portfolio by",
+    byline: "Agency",
   },
 } as const;

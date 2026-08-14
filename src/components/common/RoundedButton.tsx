@@ -18,7 +18,7 @@ export function RoundedButton({
   children,
   href,
   className = "",
-  backgroundColor = "#3d3d42",
+  backgroundColor = "#000000",
   type = "button",
   ...rest
 }: RoundedButtonProps) {
@@ -77,7 +77,7 @@ export function RoundedButton({
 
   const inner = (
     <span
-      className={`relative z-10 block px-8 py-4 text-[13px] font-medium uppercase tracking-[0.12em] text-fg ${className}`}
+      className={`relative z-10 block px-8 py-4 text-[13px] font-medium uppercase tracking-[0.12em] text-fg transition-colors duration-300 group-hover:text-bg ${className}`}
     >
       {children}
       <span
@@ -90,7 +90,7 @@ export function RoundedButton({
   );
 
   const shellClass =
-    "relative inline-flex cursor-pointer select-none overflow-hidden rounded-full border border-border bg-fg/5 transition-[border-color] duration-500 hover:border-fg/20";
+    "group relative inline-flex cursor-pointer select-none overflow-hidden rounded-full border border-border bg-fg/5 transition-[border-color] duration-500 hover:border-fg/20";
 
   if (href) {
     return (

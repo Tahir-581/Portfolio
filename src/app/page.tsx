@@ -14,22 +14,26 @@ import { SlidingImages } from "@/components/sections/SlidingImages";
 
 export default function HomePage() {
   const [showPreloader, setShowPreloader] = useState(true);
-  const [contentReady, setContentReady] = useState(false);
 
   useEffect(() => {
-    if (contentReady) {
-      window.scrollTo(0, 0);
-      const id = requestAnimationFrame(() => ScrollTrigger.refresh());
-      return () => cancelAnimationFrame(id);
+    document.body.style.overflow = showPreloader ? "hidden" : "";
+    if (showPreloader) {
+      return () => {
+        document.body.style.overflow = "";
+      };
     }
-  }, [contentReady]);
+
+    window.scrollTo(0, 0);
+    const id = requestAnimationFrame(() => ScrollTrigger.refresh());
+    return () => {
+      document.body.style.overflow = "";
+      cancelAnimationFrame(id);
+    };
+  }, [showPreloader]);
 
   return (
     <>
-      <AnimatePresence
-        mode="wait"
-        onExitComplete={() => setContentReady(true)}
-      >
+      <AnimatePresence mode="wait">
         {showPreloader ? (
           <Preloader
             key="preloader"
@@ -38,16 +42,14 @@ export default function HomePage() {
         ) : null}
       </AnimatePresence>
 
-      {contentReady ? (
-        <main id="main">
-          <Hero />
-          <Description />
-          <Projects />
-          <MoreWork />
-          <SlidingImages />
-          <Contact />
-        </main>
-      ) : null}
+      <main id="main">
+        <Hero />
+        <Description />
+        <Projects />
+        <MoreWork />
+        <SlidingImages />
+        <Contact />
+      </main>
     </>
   );
 }

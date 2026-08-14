@@ -1,20 +1,24 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useCallback, useRef, useState } from "react";
 
 import { SectionReveal } from "@/components/common/SectionReveal";
-import { projects } from "@/data/projects";
+import { projects, type Project } from "@/data/projects";
 import { EASE_LUXURY } from "@/lib/motion";
 
+import { ProjectPreviewModal } from "./ProjectPreviewModal";
 import { ProjectRow } from "./ProjectRow";
 
 export function Projects() {
   const labelRef = useRef(null);
   const inView = useInView(labelRef, { once: true, margin: "-10%" });
+  const [active, setActive] = useState<Project | null>(null);
+  const close = useCallback(() => setActive(null), []);
 
   return (
     <div
+      id="products"
       className="px-gutter pb-8 pt-4 md:pb-12 md:pt-8"
       role="region"
       aria-label="Selected work"
@@ -38,16 +42,23 @@ export function Projects() {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="hidden text-[11px] font-medium uppercase tracking-[0.2em] text-muted md:block"
           >
-            Evidence
+            Live demos
           </motion.span>
         </div>
       </SectionReveal>
 
       <div className="border-b border-border">
         {projects.map((p, i) => (
-          <ProjectRow key={p.id} project={p} index={i} />
+          <ProjectRow
+            key={p.id}
+            project={p}
+            index={i}
+            onBuyNow={setActive}
+          />
         ))}
       </div>
+
+      <ProjectPreviewModal project={active} onClose={close} />
     </div>
   );
 }

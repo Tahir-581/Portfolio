@@ -35,6 +35,7 @@ export function Preloader({ onSequenceComplete }: PreloaderProps) {
       className="fixed inset-0 z-[200] flex items-center justify-center bg-bg"
       aria-busy="true"
       aria-label="Loading"
+      data-lenis-prevent
     >
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-bg to-transparent" />
       <AnimatePresence mode="wait">

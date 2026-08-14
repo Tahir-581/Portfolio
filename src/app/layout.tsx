@@ -12,9 +12,9 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Tahir Ahmad — Designer & Developer",
+  title: "Tesoora — Website Development Agency",
   description:
-    "Premium digital design and development — calm, precise, and editorial.",
+    "Tesoora designs and builds custom websites for brands — stores, cafes, bakeries, and more.",
 };
 
 export default function RootLayout({

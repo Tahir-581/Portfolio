@@ -11,10 +11,8 @@ import { site } from "@/data/site";
 import { Nav } from "./Nav";
 
 const desktopLinks = [
-  { href: "/", label: "Home" },
-  { href: "/work", label: "Work" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
+  { href: "/#products", label: "Explore Products" },
+  { href: "/about", label: "About us" },
 ];
 
 export function Header() {
@@ -103,12 +101,14 @@ export function Header() {
               <span className="text-[11px] font-medium uppercase tracking-[0.18em] text-muted">
                 {site.logo.byline}
               </span>
-              <span className="text-lg font-medium tracking-tight md:text-xl">
-                {site.nameParts[0]}
-              </span>
-              <span className="text-lg font-medium tracking-tight md:text-xl">
-                {site.nameParts[1]}
-              </span>
+              {site.nameParts.map((part) => (
+                <span
+                  key={part}
+                  className="text-lg font-medium tracking-tight md:text-xl"
+                >
+                  {part}
+                </span>
+              ))}
             </div>
           </Link>
 

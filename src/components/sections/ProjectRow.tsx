@@ -1,22 +1,22 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
 import type { Project } from "@/data/projects";
 import { EASE_LUXURY } from "@/lib/motion";
+import { warmDemoOrigin } from "@/lib/warmDemo";
 
 type ProjectRowProps = {
   project: Project;
   index: number;
+  onBuyNow: (project: Project) => void;
 };
 
-export function ProjectRow({ project, index }: ProjectRowProps) {
+export function ProjectRow({ project, index, onBuyNow }: ProjectRowProps) {
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, margin: "-8%" });
-  const external = project.href.startsWith("http");
 
   return (
     <motion.article
@@ -33,15 +33,7 @@ export function ProjectRow({ project, index }: ProjectRowProps) {
               {String(index + 1).padStart(2, "0")}
             </span>
             <h3 className="text-[clamp(1.75rem,4vw,3rem)] font-medium tracking-tight text-fg">
-              <Link
-                href={project.href}
-                {...(external
-                  ? { target: "_blank", rel: "noopener noreferrer" }
-                  : {})}
-                className="transition-opacity hover:opacity-80"
-              >
-                {project.title}
-              </Link>
+              {project.title}
             </h3>
           </div>
           <div className="flex flex-wrap items-center gap-5 text-sm text-muted md:text-right">
@@ -54,22 +46,26 @@ export function ProjectRow({ project, index }: ProjectRowProps) {
           </div>
         </div>
 
-        <Link
-          href={project.href}
-          {...(external
-            ? { target: "_blank", rel: "noopener noreferrer" }
-            : {})}
-          className="group relative mb-6 block aspect-[16/9] w-full overflow-hidden rounded-sm bg-fg/[0.04] md:mb-8"
-        >
+        <figure className="relative mb-5 aspect-[16/9] w-full overflow-hidden rounded-sm bg-fg/[0.04] md:mb-6">
           <Image
             src={project.image}
-            alt={`${project.title} — product screenshot`}
+            alt={`${project.title} — website screenshot`}
             fill
-            className="object-cover object-top transition-transform duration-700 ease-luxury group-hover:scale-[1.02]"
+            className="object-cover object-top"
             sizes="(max-width: 1024px) 100vw, 1100px"
             priority={index < 2}
           />
-        </Link>
+        </figure>
+
+        <button
+          type="button"
+          onClick={() => onBuyNow(project)}
+          onMouseEnter={() => warmDemoOrigin(project.demoUrl)}
+          onFocus={() => warmDemoOrigin(project.demoUrl)}
+          className="mb-6 rounded-sm bg-fg px-4 py-2.5 text-[11px] font-medium uppercase tracking-[0.14em] text-bg transition-opacity hover:opacity-85 md:mb-8"
+        >
+          Buy now
+        </button>
 
         <p className="max-w-read text-base leading-relaxed text-fg/80 md:text-lg">
           {project.outcome}
