@@ -52,16 +52,16 @@ export const projects: Project[] = [
     tech: "Next.js · In-app demo · Fashion e-commerce UI",
   },
   {
-    id: "mobile-phones",
-    title: "Mobile Phones",
-    category: "Retail",
+    id: "orion-horlogerie",
+    title: "Orion Horlogerie",
+    category: "Watches",
     year: "2026",
-    image: "/images/projects/mobile-phones.jpg",
-    demoUrl: "https://mobile-phones-website.vercel.app/",
-    href: "https://mobile-phones-website.vercel.app/",
+    image: "/images/projects/orion-horlogerie.jpg",
+    demoUrl: "/demos/orion",
+    href: "/demos/orion",
     outcome:
-      "A retail catalog experience for phones and devices — clear product browsing built for shoppers who want speed and clarity.",
-    tech: "Next.js · Vercel · Retail catalog",
+      "A Geneva haute-horlogerie maison — cinematic collections, shoppable timepieces, and a salon-ready bag built to feel like a manufacture.",
+    tech: "Next.js · In-app demo · Haute horlogerie UI",
   },
 ];
 
@@ -73,11 +73,11 @@ export const slidingGallery = [
   { color: "#1a1a1c", src: "/images/projects/serum-store.jpg" },
   { color: "#252528", src: "/images/projects/ecarlate-paris.jpg" },
   { color: "#1e1e22", src: "/images/projects/dar-al-safa.jpg" },
-  { color: "#2a2826", src: "/images/projects/mobile-phones.jpg" },
+  { color: "#2a2826", src: "/images/projects/orion-horlogerie.jpg" },
 ] as const;
 
 export const slidingGalleryRow2 = [
-  { color: "#222124", src: "/images/projects/mobile-phones.jpg" },
+  { color: "#222124", src: "/images/projects/orion-horlogerie.jpg" },
   { color: "#2c2a28", src: "/images/projects/dar-al-safa.jpg" },
   { color: "#1f1d1b", src: "/images/projects/serum-store.jpg" },
   { color: "#262422", src: "/images/projects/ecarlate-paris.jpg" },

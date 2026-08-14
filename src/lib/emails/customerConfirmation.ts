@@ -21,6 +21,12 @@ function firstName(name: string) {
   return trimmed.split(/\s+/)[0] ?? trimmed;
 }
 
+function resolveUrl(pathOrUrl: string, siteUrl: string) {
+  if (/^https?:\/\//i.test(pathOrUrl)) return pathOrUrl;
+  const path = pathOrUrl.startsWith("/") ? pathOrUrl : `/${pathOrUrl}`;
+  return `${siteUrl}${path}`;
+}
+
 export function buildCustomerConfirmationEmail({
   name,
   project,
@@ -34,7 +40,10 @@ export function buildCustomerConfirmationEmail({
     : escapeHtml(
         "A tailored website built around your brand, goals, and customers — designed to look sharp and convert.",
       );
-  const demoUrl = project ? escapeHtml(project.demoUrl) : escapeHtml(siteUrl);
+  const resolvedDemoUrl = project
+    ? resolveUrl(project.demoUrl, siteUrl)
+    : siteUrl;
+  const demoUrl = escapeHtml(resolvedDemoUrl);
   const imageUrl = project ? `${siteUrl}${project.image}` : "";
   const subject = project
     ? `We received your request — ${project.title}`
@@ -52,7 +61,7 @@ export function buildCustomerConfirmationEmail({
     "2. Our team will review your project details.",
     "3. We will follow up within 24–48 hours.",
     "",
-    project ? `View the live demo: ${project.demoUrl}` : `Visit us: ${siteUrl}`,
+    project ? `View the live demo: ${resolvedDemoUrl}` : `Visit us: ${siteUrl}`,
     "",
     `Questions? Reply to this email or contact us at ${site.contact.email}.`,
     "",

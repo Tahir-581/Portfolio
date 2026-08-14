@@ -9,7 +9,7 @@ export const site = {
   heroStartCta: { label: "Start Here", href: "/work" },
   introHeading: "What we do",
   introPrimary:
-    "Tesoora is a website development agency. We craft custom sites for stores, fragrance houses, fashion houses, and growing brands — clear structure, strong visuals, and code that ships.",
+    "Tesoora is a website development agency. We craft custom sites for stores, fragrance houses, fashion houses, watch maisons, and growing brands — clear structure, strong visuals, and code that ships.",
   introSecondary:
     "Browse live demos of past work, preview them in place, and request a similar build for your business when you are ready.",
   moreWork: {
