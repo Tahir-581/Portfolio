@@ -29,7 +29,7 @@ export const projects: Project[] = [
   },
   {
     id: "ecarlate-paris",
-    title: "Écarlate Paris",
+    title: "Perfume Store",
     category: "Fragrance",
     year: "2026",
     image: "/images/projects/ecarlate-paris.jpg",
@@ -41,7 +41,7 @@ export const projects: Project[] = [
   },
   {
     id: "dar-al-safa",
-    title: "Dār Al-Safā",
+    title: "Clothing Brand",
     category: "Fashion",
     year: "2026",
     image: "/images/projects/dar-al-safa.jpg",
@@ -53,7 +53,7 @@ export const projects: Project[] = [
   },
   {
     id: "orion-horlogerie",
-    title: "Orion Horlogerie",
+    title: "Watches Store",
     category: "Watches",
     year: "2026",
     image: "/images/projects/orion-horlogerie.jpg",

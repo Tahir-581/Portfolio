@@ -14,8 +14,9 @@ export function WorkArchive() {
   return (
     <>
       <p>
-        Live websites we have designed and built — press Buy now on any project
-        to open an interactive preview, then request a similar custom build.
+        Live websites we have designed and built — click a screenshot or Buy now
+        on any project to open an interactive preview, then request a similar
+        custom build.
       </p>
       <ul className="mt-10 space-y-12 border-t border-border pt-10">
         {projects.map((p) => (
@@ -28,15 +29,20 @@ export function WorkArchive() {
                 {p.category} · {p.year}
               </span>
             </div>
-            <figure className="relative mb-5 aspect-[16/9] w-full overflow-hidden rounded-sm bg-fg/[0.04]">
+            <button
+              type="button"
+              onClick={() => setActive(p)}
+              aria-label={`Open live demo of ${p.title}`}
+              className="group relative mb-5 aspect-[16/9] w-full cursor-pointer overflow-hidden rounded-sm bg-fg/[0.04] text-left"
+            >
               <Image
                 src={p.image}
                 alt={`${p.title} — website screenshot`}
                 fill
-                className="object-cover object-top"
+                className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.02]"
                 sizes="(max-width: 1024px) 100vw, 900px"
               />
-            </figure>
+            </button>
             <button
               type="button"
               onClick={() => setActive(p)}

@@ -6,7 +6,7 @@ import { PageShell } from "@/components/layout/PageShell";
 export const metadata: Metadata = {
   title: "Work — Tesoora",
   description:
-    "Selected websites by Tesoora — Serum Store, Écarlate Paris, Dār Al-Safā, and Orion Horlogerie.",
+    "Selected websites by Tesoora — Serum Store, Perfume Store, Clothing Brand, and Watches Store.",
 };
 
 export default function WorkPage() {

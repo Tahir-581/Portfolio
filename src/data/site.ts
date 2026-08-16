@@ -22,7 +22,6 @@ export const site = {
     headingLine2: "together",
     cta: { label: "Get in touch", href: "/contact" },
     email: "support@tesoora.com",
-    phone: "+000000000",
     whatsapp: "923180186456",
     whatsappDisplay: "+92 318 0186456",
     whatsappMessage: "Hi Tesoora, I want to inquire about a website.",

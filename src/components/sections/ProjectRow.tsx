@@ -45,16 +45,21 @@ export function ProjectRow({ project, index, onBuyNow }: ProjectRowProps) {
           </div>
         </div>
 
-        <figure className="relative mb-5 aspect-[16/9] w-full overflow-hidden rounded-sm bg-fg/[0.04] md:mb-6">
+        <button
+          type="button"
+          onClick={() => onBuyNow(project)}
+          aria-label={`Open live demo of ${project.title}`}
+          className="group relative mb-5 aspect-[16/9] w-full cursor-pointer overflow-hidden rounded-sm bg-fg/[0.04] text-left md:mb-6"
+        >
           <Image
             src={project.image}
             alt={`${project.title} — website screenshot`}
             fill
-            className="object-cover object-top"
+            className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.02]"
             sizes="(max-width: 1024px) 100vw, 1100px"
             priority={index < 2}
           />
-        </figure>
+        </button>
 
         <button
           type="button"

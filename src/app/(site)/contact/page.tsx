@@ -30,14 +30,6 @@ export default function ContactPage() {
           </Magnetic>
           <Magnetic strength={0.3}>
             <a
-              href={`tel:${site.contact.phone.replace(/\s/g, "")}`}
-              className="block text-xl text-fg transition-opacity hover:opacity-70"
-            >
-              {site.contact.phone}
-            </a>
-          </Magnetic>
-          <Magnetic strength={0.3}>
-            <a
               href={whatsappHref()}
               target="_blank"
               rel="noopener noreferrer"
